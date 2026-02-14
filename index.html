@@ -14,6 +14,22 @@
 </head>
 
 <body>
+  <div id="error-display"
+    style="display:none; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 20px; position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; font-family: monospace;">
+    <h3>Application Error</h3>
+    <pre id="error-content"></pre>
+  </div>
+  <script>
+    window.onerror = function (msg, url, line, col, error) {
+      document.getElementById('error-display').style.display = 'block';
+      document.getElementById('error-content').innerText += msg + '\nat ' + url + ':' + line + ':' + col + '\n\n';
+      return false;
+    };
+    window.onunhandledrejection = function (event) {
+      document.getElementById('error-display').style.display = 'block';
+      document.getElementById('error-content').innerText += 'Unhandled Promise Rejection: ' + event.reason + '\n\n';
+    };
+  </script>
   <div id="root"></div>
 </body>
 
