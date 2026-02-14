@@ -11,6 +11,27 @@
     <link rel="stylesheet" crossorigin href="/cds-planner/assets/index-DSbonJ2y.css">
   </head>
   <body>
-    <div id="root"></div>
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        var div = document.createElement('div');
+        div.style.color = 'red';
+        div.style.backgroundColor = '#xffe';
+        div.style.padding = '20px';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.zIndex = '9999';
+        div.innerHTML = '<h1>Error</h1><p>' + msg + '</p><p>' + url + ':' + line + ':' + col + '</p>';
+        document.body.appendChild(div);
+      };
+    </script>
+    <div id="root">
+      <div style="display: flex; justify-content: center; items-align: center; height: 100vh; font-family: sans-serif;">
+        <div style="text-align: center; padding-top: 20%;">
+          <h1>Loading CDS Planner...</h1>
+          <p>If you see this, the app is downloading.</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
