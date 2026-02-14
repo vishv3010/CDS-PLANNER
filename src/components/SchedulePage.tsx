@@ -53,7 +53,7 @@ export default function SchedulePage({ onNavigate }: SchedulePageProps) {
     );
   };
 
-  const phaseColors: Record<1|2|3, {bg: string; light: string; badge: string}> = {
+  const phaseColors: Record<1 | 2 | 3, { bg: string; light: string; badge: string }> = {
     1: { bg: 'bg-blue-500', light: 'bg-blue-50 border-blue-200 text-blue-700', badge: 'bg-blue-100 text-blue-700' },
     2: { bg: 'bg-amber-500', light: 'bg-amber-50 border-amber-200 text-amber-700', badge: 'bg-amber-100 text-amber-700' },
     3: { bg: 'bg-emerald-500', light: 'bg-emerald-50 border-emerald-200 text-emerald-700', badge: 'bg-emerald-100 text-emerald-700' },
@@ -64,7 +64,7 @@ export default function SchedulePage({ onNavigate }: SchedulePageProps) {
   const endLabel = schedule[schedule.length - 1]?.dateLabel || '';
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function SchedulePage({ onNavigate }: SchedulePageProps) {
       </div>
 
       {/* Calendar Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
         {filteredSchedule.map(day => {
           const isDone = completedDays.includes(day.day);
           const pc = phaseColors[day.phase];
@@ -180,12 +180,11 @@ export default function SchedulePage({ onNavigate }: SchedulePageProps) {
       {/* Day Detail Modal */}
       {selectedDay && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
-             onClick={() => setSelectedDay(null)}>
+          onClick={() => setSelectedDay(null)}>
           <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
-               onClick={e => e.stopPropagation()}>
+            onClick={e => e.stopPropagation()}>
             {/* Modal header */}
-            <div className={`p-6 rounded-t-2xl ${
-              selectedDay.day === totalDays
+            <div className={`p-6 rounded-t-2xl ${selectedDay.day === totalDays
                 ? 'bg-gradient-to-r from-amber-500 to-orange-500'
                 : selectedDay.isSunday
                   ? 'bg-gradient-to-r from-purple-500 to-violet-600'
@@ -194,7 +193,7 @@ export default function SchedulePage({ onNavigate }: SchedulePageProps) {
                     : selectedDay.phase === 2
                       ? 'bg-gradient-to-r from-amber-500 to-amber-700'
                       : 'bg-gradient-to-r from-emerald-500 to-emerald-700'
-            }`}>
+              }`}>
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-white/80 text-sm font-medium">Day {selectedDay.day} • Phase {selectedDay.phase}</div>

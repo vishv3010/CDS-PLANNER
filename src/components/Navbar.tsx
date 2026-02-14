@@ -70,7 +70,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </button>
 
           {/* Desktop nav */}
-          <div className="hidden xl:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-0.5">
             {mainNavItems.map(item => (
               <button
                 key={item.page}
@@ -128,7 +128,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="xl:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+              className="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -138,7 +138,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="xl:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg max-h-[70vh] overflow-y-auto">
+        <div className="lg:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg max-h-[70vh] overflow-y-auto">
           <div className="px-4 py-3 space-y-1">
             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 pt-1">Study</p>
             {mainNavItems.map(item => (
@@ -199,7 +199,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
 function ExamCountdown({ examDate }: { examDate: string }) {
   const exam = new Date(examDate + 'T00:00:00');
   const today = new Date();
-  today.setHours(0,0,0,0);
+  today.setHours(0, 0, 0, 0);
   const diff = Math.max(0, Math.ceil((exam.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
 
   return (

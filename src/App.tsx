@@ -160,7 +160,7 @@ function AppContent() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen w-full bg-slate-50 dark:bg-slate-950">
       <Navbar currentPage={page} onNavigate={navigate} />
       <main className="dark:text-slate-100">{renderPage()}</main>
 
