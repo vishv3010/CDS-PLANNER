@@ -7,9 +7,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/cds-planner/assets/index-BaonrUz5.js"></script>
+    <link rel="stylesheet" crossorigin href="/cds-planner/assets/index-DSbonJ2y.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        var div = document.createElement('div');
+        div.style.color = 'red';
+        div.style.backgroundColor = '#xffe';
+        div.style.padding = '20px';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.zIndex = '9999';
+        div.innerHTML = '<h1>Error</h1><p>' + msg + '</p><p>' + url + ':' + line + ':' + col + '</p>';
+        document.body.appendChild(div);
+      };
+    </script>
+    <div id="root">
+      <div style="display: flex; justify-content: center; items-align: center; height: 100vh; font-family: sans-serif;">
+        <div style="text-align: center; padding-top: 20%;">
+          <h1>Loading CDS Planner...</h1>
+          <p>If you see this, the app is downloading.</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
